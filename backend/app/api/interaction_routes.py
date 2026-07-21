@@ -1,6 +1,7 @@
 from fastapi import APIRouter, Depends, HTTPException
 from sqlalchemy.orm import Session
 
+from app.core.security import get_current_user
 from app.database.database import get_db
 from app.schemas.interaction import (
     InteractionCreate,
@@ -11,7 +12,8 @@ from app.services import interaction_service
 
 router = APIRouter(
     prefix="/interactions",
-    tags=["Interactions"]
+    tags=["Interactions"],
+    dependencies=[Depends(get_current_user)]
 )
 
 

@@ -1,12 +1,14 @@
-from fastapi import APIRouter
+from fastapi import APIRouter, Depends
 from pydantic import BaseModel
 
 from app.agents.graph import graph
+from app.core.security import get_current_user
 
 
 router = APIRouter(
     prefix="/ai",
-    tags=["AI Assistant"]
+    tags=["AI Assistant"],
+    dependencies=[Depends(get_current_user)]
 )
 
 

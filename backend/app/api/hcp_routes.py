@@ -4,10 +4,13 @@ from sqlalchemy.orm import Session
 from app.database.database import get_db
 from app.schemas.hcp import HCPCreate, HCPUpdate, HCPResponse
 from app.services import hcp_service
+from app.core.security import get_current_user
+from app.models.user import User
 
 router = APIRouter(
     prefix="/hcps",
-    tags=["Healthcare Professionals"]
+    tags=["Healthcare Professionals"],
+    dependencies=[Depends(get_current_user)],
 )
 
 

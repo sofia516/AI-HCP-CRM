@@ -535,3 +535,49 @@ td {
     grid-template-columns: 1fr;
   }
 }
+
+/* logout button */
+.logout-btn {
+  width: 100%;
+  margin-top: 15px;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 8px;
+  background: #dc3545;
+  color: white;
+  font-size: 15px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.logout-btn:hover {
+  background: #b02a37;
+}
+
+/* User profile card */
+
+.user-card {
+  margin: 20px 15px;
+  padding: 15px;
+  text-align: center;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.avatar {
+  font-size: 40px;
+  margin-bottom: 10px;
+}
+
+.user-card h4 {
+  margin: 0;
+  color: white;
+  font-size: 16px;
+}
+
+.user-card p {
+  margin-top: 5px;
+  font-size: 13px;
+  color: #d1d5db;
+  word-break: break-word;
+}

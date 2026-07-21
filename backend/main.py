@@ -2,10 +2,12 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
 from app.database.database import Base, engine
-from app.models import HCP, Interaction
+from app.models import HCP, Interaction, User
+
 from app.api.hcp_routes import router as hcp_router
 from app.api.interaction_routes import router as interaction_router
 from app.api.ai_routes import router as ai_router
+from app.api.auth_routes import router as auth_router
 
 
 app = FastAPI(
@@ -26,9 +28,11 @@ app.add_middleware(
 
 Base.metadata.create_all(bind=engine)
 
+
 app.include_router(hcp_router)
 app.include_router(interaction_router)
 app.include_router(ai_router)
+app.include_router(auth_router)
 
 
 @app.get("/")
